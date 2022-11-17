@@ -7,10 +7,28 @@
 
 import SwiftUI
 
+struct Diagonal: Shape
+{
+    func path(in rect: CGRect) -> Path {
+        
+        // the path that describes the shape
+        var path = Path()
+        
+        // Here is where we'd descirbe the shape
+        path.move(to: CGPoint(x: 0.0, y: 0.0))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        
+        // send back path
+        return path
+    }
+    
+    
+}
+
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Diagonal()
+            .stroke()
     }
 }
 
